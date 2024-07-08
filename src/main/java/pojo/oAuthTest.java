@@ -1,9 +1,8 @@
+package pojo;
+
 import io.restassured.path.json.JsonPath;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pojo.Api;
-import pojo.GetCourse;
-import pojo.WebAutomation;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -34,7 +33,7 @@ public class oAuthTest {
 
         // Get course detail with access token
         var getCourse = given().queryParam("access_token", accessToken)
-                .when().log().all().get("https://rahulshettyacademy.com/oauthapi/getCourseDetails").as(GetCourse.class);
+                .when().log().all().get("https://rahulshettyacademy.com/oauthapi/getCourseDetails").as(GetCourse.class); // Using POJO class to deserialization
 
         System.out.println(getCourse.getLinkedIn());
         System.out.println(getCourse.getInstructor());
